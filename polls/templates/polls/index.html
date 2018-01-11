@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recent Polls</title>
+</head>
+<body>
+    {% if questions %}
+    <h3>Here are the latest polls:</h3>
+    <table>
+        <tr>
+            <td>Poll</td>
+            <td>Published</td>
+        </tr>
+        {% for q in questions %}
+        <tr>
+            <td><a href="/polls/{{ q.id }}/">{{ q.question_text }}</a></td>
+            <td>{{ q.pub_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h3>No polls to display.</h3>
+    {% endif %}
+</body>
+</html>
